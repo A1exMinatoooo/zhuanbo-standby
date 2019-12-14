@@ -1,10 +1,30 @@
-
+$(function() {
+	var flag=false;
+	if(getQueryString("slide")==1){
+		flag=true;
+	}
+	// Slideshow 4
+	$("#slider4").responsiveSlides({
+	  auto: flag,
+	  pager: false,
+	  nav: false,
+	  speed: 500,
+	  namespace: "callbacks",
+	  before: function() {
+		$(".events").append("<li>before event fired.</li>");
+	  },
+	  after: function() {
+		$(".events").append("<li>after event fired.</li>");
+	  }
+	});
+  });
 $(document).ready(function(){
 
 	var times=getQueryString("times");
 	times=times.replace("!"," ");
 
 	var name=getQueryString("staff");
+	name=decodeURIComponent(name);
 	$('#staff').html(name);
 	/* ---- Countdown timer ---- */
 
