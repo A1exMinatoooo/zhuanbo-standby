@@ -54,16 +54,16 @@ a {
 .pos-absolute {
 	position:absolute;
 }/* Position Absolute */
-.vertical-base {	
+.vertical-base {
 	vertical-align:baseline;
 }/* vertical align baseline */
-.vertical-top {	
+.vertical-top {
 	vertical-align:top;
 }/* vertical align top */
-nav.vertical ul li {	
+nav.vertical ul li {
 	display:block;
 }/* vertical menu */
-nav.horizontal ul li {	
+nav.horizontal ul li {
 	display: inline-block;
 }/* horizontal menu */
 img {
@@ -229,7 +229,7 @@ color: #fff;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
-	
+
 }
 button span {
     background: url(../images/arrow1.png) repeat-x 0px 0px;
@@ -272,7 +272,7 @@ button span:hover {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
-	
+
 }
 
 .btn-4:active:before {
@@ -510,47 +510,47 @@ h2 {
     position: relative;
 }
 .agileits-banner-info{
-    background: url(../images/1.jpg) no-repeat 0px 0px;
+    background: url(../images/bk/1.jpg) no-repeat 0px 0px;
     background-size: cover;
     background-attachment: fixed;
 }
 .agileits-banner-info1{
-	background:url(../images/2.png) no-repeat 0px 0px;
+	background:url(../images/bk/2.png) no-repeat 0px 0px;
 	background-size:cover;
 	background-attachment: fixed;
 }
 .agileits-banner-info2{
-	background:url(../images/3.png) no-repeat 0px 0px;
+	background:url(../images/bk/3.png) no-repeat 0px 0px;
 	background-size:cover;
 	background-attachment: fixed;
 }
 .agileits-banner-info3{
-	background:url(../images/4.png) no-repeat 0px 0px;
+	background:url(../images/bk/4.png) no-repeat 0px 0px;
 	background-size:cover;
 	background-attachment: fixed;
 }
 .agileits-banner-info4{
-	background:url(../images/5.png) no-repeat 0px 0px;
+	background:url(../images/bk/5.png) no-repeat 0px 0px;
 	background-size:cover;
 	background-attachment: fixed;
 }
 .agileits-banner-info5{
-	background:url(../images/6.png) no-repeat 0px 0px;
+	background:url(../images/bk/6.png) no-repeat 0px 0px;
 	background-size:cover;
 	background-attachment: fixed;
 }
 .agileits-banner-info6{
-	background:url(../images/7.jpg) no-repeat 0px 0px;
+	background:url(../images/bk/7.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	background-attachment: fixed;
 }
 .agileits-banner-info7{
-	background:url(../images/8.png) no-repeat 0px 0px;
+	background:url(../images/bk/8.png) no-repeat 0px 0px;
 	background-size:cover;
 	background-attachment: fixed;
 }
 .agileits-banner-info8{
-	background:url(../images/9.png) no-repeat 0px 0px;
+	background:url(../images/bk/9.png) no-repeat 0px 0px;
 	background-size:cover;
 	background-attachment: fixed;
 }
@@ -1127,7 +1127,7 @@ h2 {
 	}
 	.content {
 		width: 77%;
-	}	
+	}
 }
 @media(max-width:384px){
 	.newsletter input[type="text"] {
@@ -1247,5 +1247,5 @@ h2 {
 	h2 {
 		font-size: 18px;
 	}
-}	
+}
 /*--//responsive-design--*/
