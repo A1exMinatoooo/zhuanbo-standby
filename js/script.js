@@ -100,7 +100,7 @@ function switchPic(type) {
   	imageurl = picSource + 'img' + i + '.png';
   	// alert( CheckImgExists(imageurl));
   }
-  alert(hdfiles);
+//   alert(hdfiles);
 //   while (i <= cnt) {
 //     hdfiles += "<li>";
 //     hdfiles +='     <div class="agileits-banner-info" style="background: url(' + imageurl + ') no-repeat 0px 0px; background-size: cover; background-attachment: fixed;">';
@@ -116,12 +116,6 @@ function switchPic(type) {
 
 function CheckImgExists(imgurl) {
 	var ImgObj = new Image(); //判断图片是否存在
-	// ImgObj.onload = function() {
-	// 	return true;
-	// }
-	// ImgObj.onerror = function() {
-	// 	return false;
-	// }
 	ImgObj.src = imgurl;
 	var xhr = new XMLHttpRequest();
 	xhr.open('HEAD', ImgObj.src, false);
@@ -129,5 +123,3 @@ function CheckImgExists(imgurl) {
 	return xhr.status == 200;
 
 }
-
-// if (ImgObj.fileSize > 0 || (ImgObj.width > 0 && ImgObj.height > 0)) {
