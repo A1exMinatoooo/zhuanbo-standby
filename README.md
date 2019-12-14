@@ -18,7 +18,7 @@ STAFF 名称后面支持中英文混排、部分符号及 Emoji
 
 - `tamaki` : 犬山たまき
 
-- `mashiro` : 白雪みしろ
+- `mishiro` : 白雪みしろ
 
 会替换页面内的 Emoji 以及底端转播信息
 
