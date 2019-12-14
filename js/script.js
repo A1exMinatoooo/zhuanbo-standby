@@ -65,7 +65,7 @@ var getQueryString = function(field, url) {
 
 function switchEmoji(type) {
   if (type == "tamaki") {
-    $(".emoji").html("🐶");
+    $(".emoji").html("🐶💙");
     $("#mirrorGroupName").html("犬金組");
   } else if (type == "hime") {
     $(".emoji").html("🍡");
