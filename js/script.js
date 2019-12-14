@@ -92,7 +92,7 @@ function switchEmoji(type) {
 		else if (type == "mishiro") {
 			picSource = "./images/bk-mishiro/";
 		}
-		
+
 		var i = 1;
 		var imageurl = picSource + 'img' + i + '.png';
 		var hdfiles = "";
@@ -107,43 +107,42 @@ function switchEmoji(type) {
 			imageurl = picSource + 'img' + i + '.png';
 			// alert( CheckImgExists(imageurl));
 		}
-		// var tbsource = "../images/bk/";//本地文件夹路径
-		
+
 		$("#slider4").html(hdfiles);
 
 	}
 
-	// function CheckImgExists(imgurl) {
-	// 	var ImgObj = new Image(); //判断图片是否存在  
-	// 	ImgObj.src = imgurl;
-	// 	alert(ImgObj.src);
-	// 	alert(ImgObj.complete);
-	// 	alert(ImgObj.onerror);
-	// 	alert(ImgObj.width);
-	// 	//存在图片
-	// 	if (ImgObj.width > 0 && ImgObj.height > 0) {  
-	// 		return true;
-	// 	} else {  
-	// 		return false;
-	// 	}
-	// 	}
-
 	function CheckImgExists(imgurl) {
-	var isExists;
-	$.ajax({
-		url: imgurl,
-		async: false,
-		type: "GET",
-		error: function() {
-		isExists = 0;
-		},
-		success: function() {
-		isExists = 1;
+		var ImgObj = new Image(); //判断图片是否存在
+		ImgObj.src = imgurl;
+		// alert(ImgObj.src);
+		// alert(ImgObj.complete);
+		// alert(ImgObj.onerror);
+		// alert(ImgObj.width);
+		//存在图片
+		if (ImgObj.width > 0 && ImgObj.height > 0) {
+			return true;
+		} else {
+			return false;
 		}
-	});
-	if (isExists == 1) {
-		return true;
-	} else {
-		return false;
-	}
-	}
+		}
+
+	// function CheckImgExists(imgurl) {
+	// var isExists;
+	// $.ajax({
+	// 	url: imgurl,
+	// 	async: false,
+	// 	type: "GET",
+	// 	error: function() {
+	// 	isExists = 0;
+	// 	},
+	// 	success: function() {
+	// 	isExists = 1;
+	// 	}
+	// });
+	// if (isExists == 1) {
+	// 	return true;
+	// } else {
+	// 	return false;
+	// }
+	// }
