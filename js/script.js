@@ -6,7 +6,7 @@ $(function() {
   var cnt = getQueryString("cnt") ? getQueryString("cnt") : 1;
   var gpname = getQueryString("gpname");
   switchEmoji(gpname);
-  switchPic(gpname);
+  switchPic(gpname,cnt);
   // Slideshow 4
   $("#slider4").responsiveSlides({
     auto: flag,
@@ -102,10 +102,7 @@ function switchPic(type, cnt) {
   // }
   while (i <= cnt) {
     hdfiles += "<li>";
-    hdfiles +=
-      '     <div class="agileits-banner-info" style="background: url(' +
-      imageurl +
-      ') no-repeat 0px 0px; background-size: cover; background-attachment: fixed;">';
+    hdfiles +='     <div class="agileits-banner-info" style="background: url(' + imageurl + ') no-repeat 0px 0px; background-size: cover; background-attachment: fixed;">';
     hdfiles += '      <div class="banner-dot"></div>';
     hdfiles += "    </div>";
     hdfiles += "</li>";
