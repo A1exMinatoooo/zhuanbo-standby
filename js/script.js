@@ -3,7 +3,7 @@ $(function() {
 	if (getQueryString("slide") == 1) {
 		flag = true;
 		}
-
+		var cnt = getQueryString("cnt")?getQueryString("cnt"):1;
 		var gpname = getQueryString("gpname");
 		switchEmoji(gpname);
 		switchPic(gpname);
@@ -80,7 +80,7 @@ function switchEmoji(type) {
 	}
 }
 
-	function switchPic(type){
+	function switchPic(type, cnt){
 
 		var picSource = "./images/bk-hime/";
 		if (type == "tamaki") {
@@ -97,7 +97,17 @@ function switchEmoji(type) {
 		var imageurl = picSource + 'img' + i + '.png';
 		var hdfiles = "";
 		// alert(imageurl);
-		while(CheckImgExists(imageurl)) {
+		// while(CheckImgExists(imageurl)) {
+		// 	hdfiles +='<li>';
+		// 	hdfiles +='     <div class="agileits-banner-info" style="background: url('+imageurl+') no-repeat 0px 0px; background-size: cover; background-attachment: fixed;">';
+		// 	hdfiles +='      <div class="banner-dot"></div>';
+		// 	hdfiles +='    </div>';
+		// 	hdfiles +='</li>';
+		// 	i = i + 1;
+		// 	imageurl = picSource + 'img' + i + '.png';
+		// 	// alert( CheckImgExists(imageurl));
+		// }
+		while(i <= cnt) {
 			hdfiles +='<li>';
 			hdfiles +='     <div class="agileits-banner-info" style="background: url('+imageurl+') no-repeat 0px 0px; background-size: cover; background-attachment: fixed;">';
 			hdfiles +='      <div class="banner-dot"></div>';
@@ -107,25 +117,24 @@ function switchEmoji(type) {
 			imageurl = picSource + 'img' + i + '.png';
 			// alert( CheckImgExists(imageurl));
 		}
-
 		$("#slider4").html(hdfiles);
 
 	}
 
-	function CheckImgExists(imgurl) {
-		var ImgObj = new Image(); //判断图片是否存在
-		ImgObj.src = imgurl;
-		// alert(ImgObj.src);
-		// alert(ImgObj.complete);
-		// alert(ImgObj.onerror);
-		// alert(ImgObj.width);
-		//存在图片
-		if (ImgObj.width > 0 && ImgObj.height > 0) {
-			return true;
-		} else {
-			return false;
-		}
-		}
+	// function CheckImgExists(imgurl) {
+	// 	var ImgObj = new Image(); //判断图片是否存在
+	// 	ImgObj.src = imgurl;
+	// 	alert(ImgObj.src);
+	// 	alert(ImgObj.complete);
+	// 	alert(ImgObj.onerror);
+	// 	alert(ImgObj.width);
+	// 	//存在图片
+	// 	if (ImgObj.width > 0 && ImgObj.height > 0) {
+	// 		return true;
+	// 	} else {
+	// 		return false;
+	// 	}
+	// 	}
 
 	// function CheckImgExists(imgurl) {
 	// var isExists;
