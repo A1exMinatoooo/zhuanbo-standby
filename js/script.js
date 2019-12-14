@@ -116,14 +116,18 @@ function switchPic(type) {
 
 function CheckImgExists(imgurl) {
 	var ImgObj = new Image(); //判断图片是否存在
+	// ImgObj.onload = function() {
+	// 	return true;
+	// }
+	// ImgObj.onerror = function() {
+	// 	return false;
+	// }
 	ImgObj.src = imgurl;
-	// alert(ImgObj.src);
-	// alert(ImgObj.complete);
-	// alert(ImgObj.width);
-	//存在图片
-	if (ImgObj.width > 0 && ImgObj.height > 0) {
-		return true;
-	} else {
-		return false;
-	}
+	var xhr = new XMLHttpRequest();
+	xhr.open('HEAD', ImgObj.src, false);
+	xhr.send();
+	return xhr.status == 200;
+
 }
+
+// if (ImgObj.fileSize > 0 || (ImgObj.width > 0 && ImgObj.height > 0)) {
