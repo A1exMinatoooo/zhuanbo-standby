@@ -1,68 +1,69 @@
 $(function() {
-  var flag = false;
-  if (getQueryString("slide") == 1) {
-    flag = true;
-	}
+	var flag = false;
+	if (getQueryString("slide") == 1) {
+		flag = true;
+		}
 
-  // Slideshow 4
-  $("#slider4").responsiveSlides({
-    auto: flag,
-    pager: false,
-    nav: false,
-    speed: 500,
-    namespace: "callbacks",
-    before: function() {
-      $(".events").append("<li>before event fired.</li>");
-    },
-    after: function() {
-      $(".events").append("<li>after event fired.</li>");
-    }
+		var gpname = getQueryString("gpname");
+		switchEmoji(gpname);
+		switchPic(gpname);
+	// Slideshow 4
+	$("#slider4").responsiveSlides({
+		auto: flag,
+		pager: false,
+		nav: false,
+		speed: 500,
+		namespace: "callbacks",
+		before: function() {
+		$(".events").append("<li>before event fired.</li>");
+		},
+		after: function() {
+		$(".events").append("<li>after event fired.</li>");
+		}
+		});
+
 	});
 
-});
+	$(document).ready(function() {
+	var times = getQueryString("times");
+	times = times.replace("!", " ");
 
-$(document).ready(function() {
-  var times = getQueryString("times");
-  times = times.replace("!", " ");
 
-	var gpname = getQueryString("gpname");
-	switchEmoji(gpname);
+	var name = getQueryString("staff");
+	name = decodeURIComponent(name);
+	$("#staff").html(name);
+	/* ---- Countdown timer ---- */
 
-  var name = getQueryString("staff");
-  name = decodeURIComponent(name);
-  $("#staff").html(name);
-  /* ---- Countdown timer ---- */
+	$("#counter").countdown({
+		timestamp: new Date(times).getTime()
+	});
 
-  $("#counter").countdown({
-    timestamp: new Date(times).getTime()
-  });
+	/* ---- Animations ---- */
 
-  /* ---- Animations ---- */
+	$("#links a").hover(
+		function() {
+		$(this).animate({ left: 3 }, "fast");
+		},
+		function() {
+		$(this).animate({ left: 0 }, "fast");
+		}
+	);
 
-  $("#links a").hover(
-    function() {
-      $(this).animate({ left: 3 }, "fast");
-    },
-    function() {
-      $(this).animate({ left: 0 }, "fast");
-    }
-  );
-
-  $("footer a").hover(
-    function() {
-      $(this).animate({ top: 3 }, "fast");
-    },
-    function() {
-      $(this).animate({ top: 0 }, "fast");
-    }
-  );
-});
-var getQueryString = function(field, url) {
-  var href = url ? url : window.location.href;
-  var reg = new RegExp("[?&]" + field + "=([^&#]*)", "i");
-  var string = reg.exec(href);
-  return string ? string[1] : null;
-};
+	$("footer a").hover(
+		function() {
+		$(this).animate({ top: 3 }, "fast");
+		},
+		function() {
+		$(this).animate({ top: 0 }, "fast");
+		}
+	);
+	});
+	var getQueryString = function(field, url) {
+	var href = url ? url : window.location.href;
+	var reg = new RegExp("[?&]" + field + "=([^&#]*)", "i");
+	var string = reg.exec(href);
+	return string ? string[1] : null;
+	};
 
 function switchEmoji(type) {
 	if (type == "tamaki") {
@@ -78,3 +79,71 @@ function switchEmoji(type) {
 		$("#mirrorGroupName").html("犬金組")
 	}
 }
+
+	function switchPic(type){
+
+		var picSource = "./images/bk-hime/";
+		if (type == "tamaki") {
+			picSource = "./images/bk-tamaki/";
+		}
+		else if (type == "hime") {
+			picSource = "./images/bk-hime/";
+		}
+		else if (type == "mishiro") {
+			picSource = "./images/bk-mishiro/";
+		}
+		
+		var i = 1;
+		var imageurl = picSource + 'img' + i + '.png';
+		var hdfiles = "";
+		// alert(imageurl);
+		while(CheckImgExists(imageurl)) {
+			hdfiles +='<li>';
+			hdfiles +='     <div class="agileits-banner-info" style="background: url('+imageurl+') no-repeat 0px 0px; background-size: cover; background-attachment: fixed;">';
+			hdfiles +='      <div class="banner-dot"></div>';
+			hdfiles +='    </div>';
+			hdfiles +='</li>';
+			i = i + 1;
+			imageurl = picSource + 'img' + i + '.png';
+			// alert( CheckImgExists(imageurl));
+		}
+		// var tbsource = "../images/bk/";//本地文件夹路径
+		
+		$("#slider4").html(hdfiles);
+
+	}
+
+	// function CheckImgExists(imgurl) {
+	// 	var ImgObj = new Image(); //判断图片是否存在  
+	// 	ImgObj.src = imgurl;
+	// 	alert(ImgObj.src);
+	// 	alert(ImgObj.complete);
+	// 	alert(ImgObj.onerror);
+	// 	alert(ImgObj.width);
+	// 	//存在图片
+	// 	if (ImgObj.width > 0 && ImgObj.height > 0) {  
+	// 		return true;
+	// 	} else {  
+	// 		return false;
+	// 	}
+	// 	}
+
+	function CheckImgExists(imgurl) {
+	var isExists;
+	$.ajax({
+		url: imgurl,
+		async: false,
+		type: "GET",
+		error: function() {
+		isExists = 0;
+		},
+		success: function() {
+		isExists = 1;
+		}
+	});
+	if (isExists == 1) {
+		return true;
+	} else {
+		return false;
+	}
+	}
